@@ -30,18 +30,7 @@ export const StopWatch = () => {
     }
 
     function lap(){
-        let hours = Math.floor(elapseTime/ (1000 * 60 * 60));
-        let minutes = Math.floor(elapseTime / (1000 * 60) % 60);
-        let seconds = Math.floor(elapseTime / (1000) % 60);
-        let milliseconds = Math.floor((elapseTime % 1000) / 10);
-
-        hours = String(hours).padStart(2,"0");
-        minutes = String(minutes).padStart(2, "0");
-        seconds = String(seconds).padStart(2, "0");
-        milliseconds = String(milliseconds).padStart(2, "0");
-        const newLap = `${minutes}:${seconds}:${milliseconds}`;
-        setLaps([...laps, newLap]);
-
+        setLaps([...laps, formatTime()]);
     }
 
     function reset(){
@@ -52,12 +41,10 @@ export const StopWatch = () => {
 
     function formatTime(){
 
-        let hours = Math.floor(elapseTime/ (1000 * 60 * 60));
         let minutes = Math.floor(elapseTime / (1000 * 60) % 60);
         let seconds = Math.floor(elapseTime / (1000) % 60);
         let milliseconds = Math.floor((elapseTime % 1000) / 10);
 
-        hours = String(hours).padStart(2,"0");
         minutes = String(minutes).padStart(2, "0");
         seconds = String(seconds).padStart(2, "0");
         milliseconds = String(milliseconds).padStart(2, "0");
